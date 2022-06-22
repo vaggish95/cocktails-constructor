@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title> Регистрация </title>
+    <link rel="shortcut icon" href="https://steelclaw.com.ua/wp-content/uploads/2021/09/50041.webp">
+    <style type="text/css">
+        .footer {
+        position:relative;
+        top:120px;
+        background-color: #008B8B;
+        height: 90px;
+        width: 100%;
+        text-align:center;
+        padding-top:10px;
+        }
+        .table {
+        text-align:center;
+        }
+        .form_holder{
+        position:relative;
+        }.
+ .wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4FD1C5;
+background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+button::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00FFCB;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+.button:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+button:hover::before, button:focus::before {
+  opacity: 1;
+}
+.bottoms_holder{
+position:relative;
+top:80px;
+}
+.text_holder{
+position:relative;
+top:40px;
+font-family: 'Nunito', sans-serif;
+font-size: 18px;
+text-transform: uppercase;
+}.form_holder {
+position:relative;
+top:60px;
+}.field {
+height:50px;
+width:400px;
+ border-style: solid;
+ border-width: 3px;
+ border-color:black;
+ font-size:17px;
+}.letters{
+font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.error {
+ color:red;
+ font-size:20px;
+ }
+
+
+
+</style>
+</head>
+
+<body>
+<div class="main_content" align="center">
+    <div class="lock_image">
+        <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/37722/preview.svg"
+                width="300px"
+                height="300px"
+                 alt="lock">
+    </div>
+    <div class="text_holder">
+        <H1> РЕГИСТРАЦИЯ</H1>
+    </div>
+    <div class="form_holder">
+        <form class="form" action="/cocktails-constructor/registration" method="post" id="registration">
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://avatars.mds.yandex.net/i?id=d84f452cb35928f4eced6eb5444bdde5-4269676-images-thumbs&n=13"
+                             width="40"
+                             height="40"
+                             alt="person">
+                    </td>
+                    <td>
+                        <input class="field" required type="text" placeholder="ИМЯ" name="name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="http://cdn.onlinewebfonts.com/svg/img_519965.png"
+                             width="40"
+                             height="40"
+                             alt="mail">
+                    </td>
+                    <td>
+                        <input class="field" required type="email" placeholder="E-MAIL" name="email">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://smoland.shop/userfls/upload/744601950b24213866655553643b46ec.png"
+                             width="40"
+                             height="40"
+                             alt="location">
+                    </td>
+                    <td>
+                        <input class="field" required type="text" placeholder="Город" name="city">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="http://cdn.onlinewebfonts.com/svg/img_520019.png"
+                             width="40"
+                             height="40"
+                             alt="lock">
+                    </td>
+                    <td>
+                        <input class="field" required type="password" placeholder="ПАРОЛЬ" name="password">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="http://cdn.onlinewebfonts.com/svg/img_520019.png"
+                             width="40"
+                             height="40"
+                             alt="lock">
+                    </td>
+                    <td>
+                        <input class="field"  required type="password" placeholder="ПОВТОРИТЕ ПАРОЛЬ" name="password_repeat">
+                    </td>
+                </tr>
+            </table>
+            <div class="error" th:if="${password_error !=null}"> Пароли не совподают </div>
+
+
+        </form>
+    </div>
+    <div class="bottoms_holder">
+
+        <div>
+                <button class="button" type="submit" form="registration">Зарегистрироваться</button>
+        </div>
+        <div>
+            <br>
+            <a href="/cocktails-constructor/login">
+               <button class="button" type="submit">Назад</button>
+           </a>
+
+   </div>
+
+
+    </div>
+</div>
+<footer>
+
+    <div class="footer">
+
+        <table align="center">
+            <tr>
+                <td>
+                    <a href="https://t.me/VGS1701">
+                        <img  src="https://icons-for-free.com/iconfiles/png/512/media+social+telegram+icon-1320193121598222952.png"
+                              width="60px"
+                              height="60px"
+                              alt="Telegram">
+                    </a>
+                </td>
+
+                <td>
+                    <a href="https://www.instagram.com/vsg_17/">
+                        <img  src="https://clipart.info/images/ccovers/1559063345Instagram-logo-png-original-old.png"
+                              width="60px"
+                              height="60px"
+                              alt="Instagram">
+                    </a>
+                </td>
+                <td>
+                    <a href="/cocktails-constructor/about">
+                        <img  src="https://upload.wikimedia.org/wikipedia/commons/6/60/Firefox_Home_-_logo.png"
+                              width="60px"
+                              height="60px"
+                              title="Information">
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</footer>
+</body>
+
+
+
+
+
+
+</html>

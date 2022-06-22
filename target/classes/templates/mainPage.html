@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title> Конструктор </title>
+    <link rel="stylesheet href "  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/127978/isolated/lists/b5dc5cfbf9438604b6f856fda4abdc93-hand-drawn-magnifying-glass.png">
+    <style type="text/css">
+        .main_photo {
+        text-align:center;
+        background:black;
+    }
+    .main_text {
+    position: relative;
+    top:200px;
+    right:200px;
+ }
+  .description_text {
+   text-align:center;
+  }
+.form{
+   text-align:center;
+   background:#00053d;
+   padding-bottom:30px;
+   z-index:-2;
+   }
+   .footer_container{
+    position: relative;
+    text-align: center;
+    background-color: grey;
+    padding-top:30px;
+    padding-bottom:30px;
+}.custom-btn {
+  width: 200px;
+  height: 70px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-9 {
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index:0;
+}
+.btn-9:after {
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   background-color: #1fd1f9;
+background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  transition: all 0.3s ease;
+}
+.btn-9:hover {
+  background: transparent;
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  color: #fff;
+}
+.btn-9:hover:after {
+  -webkit-transform: scale(2) rotate(180deg);
+  transform: scale(2) rotate(180deg);
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+.table{
+text-align:center;
+border-collapse: collapse;
+}.html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(#f2f2f6, #d3d3e7);
+}
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.animated-word {
+  font-family: fantasy;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 35px;
+  text-align: center;
+  color: #ef08ef;
+  cursor: pointer;
+  max-width: 600px;
+  width: 100%;
+  outline: 3px solid;
+  outline-color: rgba(71, 126, 232,0.5);
+  outline-offset: 70px;
+  transition: all 600ms cubic-bezier(0.2, 0, 0, 0.8);
+}
+.animated-word:hover {
+  color: #181fb1;
+  outline-color: rgba(71, 126, 232, 0);
+  outline-offset:100px;
+}
+.name_holder {
+position:relative;
+right:60px;
+top:50px;
+}
+a {
+text-decoration: none;
+color: #ef08ef;
+}
+.ingridientsForm {
+font-family: Sans-serif;
+color:white;
+}
+.tableLabel {
+padding-top:30px;
+font-size:30px;
+color:#ff00ff;
+font-family: Sans-serif;
+}
+.buttonsHolder {
+padding-bottom:20px;
+}
+.resultPhoto {
+width:350px;
+max-height:750px;
+}
+.account {
+position:relative;
+top:10px;
+left:250px;
+font-size:30px;
+font-family: 'Nunito', sans-serif;
+}
+</style>
+
+</head>
+<body>
+<div class="main_photo">
+    <a href="/cocktails-constructor/login" ><p class="account"> ВОЙТИ </p> </a>
+    <img src="https://i.imgur.com/bWaXi5j.jpeg"
+         width="1000"
+         height="500"
+         alt="Конструктор Коктейлей">
+</div>
+<div class="description_text">
+<img src="https://i.imgur.com/VaiQnfj.png"
+     width="900" height="500">
+</div>
+<div class="form">
+
+    <div class="tableLabel" > ВЫБЕРИТЕ ИГРЕДИЕНТЫ И ТИП ПОИСКА: </div>
+    <div class="buttonsHolder" align="center">
+        <table>
+            <tr>
+                <td style="padding-right:30px;">
+                    <button class="custom-btn btn-9"
+                            type="submit"
+                            form="ingredients_list"
+                            formaction="/cocktails-constructor/search/combinations"
+                            title="Будут показаны все возможные коктейли, которые можно сделать из выбранного перченя ингредиентов.">КОМБИНАЦИИ КОКТЕЙЛЕЙ</button>
+
+                </td>
+                <td>
+                    <button class="custom-btn btn-9"
+                            type="submit"
+                            form="ingredients_list"
+                            formaction="/cocktails-constructor/search/anyMatch"
+                            title="Будут показны все коктейли, где есть хотя бы один из выбранных ингредиентов.">ВСЕ КОКТЕЙЛИ</button>
+
+                </td>
+                <td style="padding-left:30px;">
+                    <button class="custom-btn btn-9"
+                            type="submit"
+                            form="ingredients_list"
+                            formaction="/cocktails-constructor/search/fullMatch"
+                            title="Будет показан коктейль, состав которого польностью соответствует заданному перечню ингредиентов.">КОНКРЕТНЫЙ КОКТЕЙЛЬ</button>
+                </td>/
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div class ="paramets_form">
+        <form id="ingredients_list" method="get">
+            <table align="center" class="ingridientsForm" >
+                <tr align="left">
+                    <th height="30"> BASE LIQUORS:</th>
+                    <th > LIQUEURS:</th>
+                    <th > WINES :  </th>
+                    <th > SOFTS AND CONDIMENTS:</th>
+                </tr>
+                <tr>
+                    <td valign="top" width="200" align="left">
+                        <input  type="checkbox"  value="1"  name ="checkbox"> VODKA<br>
+                        <input  type="checkbox" value="2"  name ="checkbox"> ABSENT <br>
+                        <input  type="checkbox" value="3"  name ="checkbox"> GIN <br>
+                        <input  type="checkbox"  value="4"  name ="checkbox"> RUM <br>
+                        <input  type="checkbox" value="5"  name ="checkbox"> Tequila <br>
+                        <input  type="checkbox" value="6"  name ="checkbox"> Cognac<br>
+                        <input  type="checkbox" value="7"  name ="checkbox"> WHISKEY<br>
+                        <input  type="checkbox" value="8"  name ="checkbox"> Calvados <br>
+                        <input  type="checkbox" value="9"  name ="checkbox"> SAMBUKA <br>
+                        <input  type="checkbox" value="10"  name ="checkbox"> CACHACA  <br>
+                        <input  type="checkbox"  value="11 " name ="checkbox"> GRAPPA <br>
+                        <input  type="checkbox"  value="12 " name ="checkbox"> BRANDY <br>
+
+                    </td>
+                    <td valign="top" width="200" align="left">
+                        <input  type="checkbox" value="101" name ="checkbox"> Coffee Liqueur <br>
+                        <input  type="checkbox" value="102" name ="checkbox"> Maraschino <br>
+                        <input  type="checkbox"  value="103" name ="checkbox"> Blue Curaçao <br>
+<!--                        <input  type="checkbox" value="104" name ="checkbox"> Limoncello <br>-->
+                        <input  type="checkbox" value="105" name ="checkbox"> Amaretto <br>
+                        <input  type="checkbox"  value="106" name ="checkbox"> Bénédictine <br>
+                        <input  type="checkbox" value="107" name ="checkbox"> Drambuie <br>
+                        <input  type="checkbox"  value="108" name ="checkbox"> Jägermeister <br>
+                        <input  type="checkbox" value="109" name ="checkbox"> Aperol <br>
+                        <input  type="checkbox" value="110" name ="checkbox"> Baileys <br>
+                        <input  type="checkbox" value="111" name ="checkbox"> Orange Bitter <br>
+                        <input  type="checkbox" value="112" name ="checkbox"> Crème de cassis <br>
+                        <input  type="checkbox" value="113" name ="checkbox"> Lillet <br>
+                        <input  type="checkbox" value="114" name ="checkbox"> Creme de Cacao <br>
+                        <input  type="checkbox" value="114" name ="checkbox"> MALIBU <br>
+                        <input  type="checkbox" value="116" name ="checkbox"> Orange Liqueur <br>
+                        <input  type="checkbox" value="117" name ="checkbox"> Crème de Menthe <br>
+                        <input  type="checkbox" value="118" name ="checkbox"> Crème de Violette <br>
+
+
+                    </td>
+                    <td valign="top" width="200" align="left">
+                        <input  type="checkbox"  value="201" name ="checkbox"> CHAMPAGNE <br>
+                        <input  type="checkbox" value="202" name ="checkbox"> PROSECCO <br>
+                        <input  type="checkbox"  value="203" name ="checkbox"> RED WINE <br>
+                        <input  type="checkbox" value="204" name ="checkbox"> WHITE WINE <br>
+                        <input  type="checkbox" value="205" name ="checkbox"> ROSE WINE <br>
+                        <input  type="checkbox" value="206" name ="checkbox"> SHERRY<br>
+                        <input  type="checkbox"  value="207" name ="checkbox"> PORTO <br>
+                        <input  type="checkbox"  value="208" name ="checkbox"> WERMUT <br>
+                    </td>
+                    </td>
+                    <td valign="top" width="300" align="left">
+                        <input type="checkbox"  value="301" name ="checkbox"> Coffee <br>
+                        <input type="checkbox" value="302"  name ="checkbox"> Cream <br>
+                        <input type="checkbox"  value="303" name ="checkbox"> Orange juice <br>
+                        <input type="checkbox"  value="304" name ="checkbox"> Apple juice <br>
+                        <input type="checkbox" value="305" name ="checkbox"> Pineapple juice <br>
+                        <input type="checkbox" value="306"  name ="checkbox"> Grapefruit juice <br>
+                        <input type="checkbox" value="307"  name ="checkbox"> Tomato juice <br>
+                        <input type="checkbox"  value="308" name ="checkbox"> Cherry juice<br>
+                        <input type="checkbox" value="309" name ="checkbox"> Lime/Lemon juice <br>
+                        <input type="checkbox" value="310"  name ="checkboxN"> Cranberry juice (Mors) <br>
+                        <input type="checkbox" value="311" name ="checkbox"> Coca-cola <br>
+                        <input type="checkbox"  value="312" name ="checkbox"> Sprite <br>
+                        <input type="checkbox" value="313" name ="checkbox"> Tonic <br>
+                        <input type="checkbox"  value="314" name ="checkboxN"> Red Bull <br>
+                        <input type="checkbox" value="315"  name ="checkbox"> Olive juice  <br>
+                        <input type="checkbox" value="316" name ="checkbox"> Ginger <br>
+                        <input type="checkbox" value="317" name ="checkbox"> Peach pure <br>
+                        <input type="checkbox" value="318" name ="checkbox"> Egg <br>
+                        <input type="checkbox" value="319" name ="checkbox"> Raspberry <br>
+                        <input type="checkbox" value="320" name ="checkbox"> Ginger Ale <br>
+
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</div>
+<div class ="output" style="background-color:white;">
+    <th:block th:each="Cocktail : ${ready_list}">
+        <div style="background-color:white; padding-top:30px; padding-bottom:160px;">
+            <div class="front_image_container2">
+                <table align="center" width="1000" >
+                    <tr>
+                        <td align="left">
+                            <img th:src ="@{{name}(name=${Cocktail.photo})}" class="resultPhoto">
+                        </td>
+                        <td align="center">
+                            <div class="name_holder">
+                                    <div class="container">
+                                        <p class="animated-word"> <a th:text="${Cocktail.name}" th:href="${Cocktail.href}"></a></p>
+                                    </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </th:block>
+</div>
+<footer>
+    <div class="footer_container" >
+        <a href="https://www.instagram.com/vsg_17/">
+            <img class="insta" src="https://clipart.info/images/ccovers/1559063345Instagram-logo-png-original-old.png"
+                 width="40px"
+                 height="40px"
+                alt="Instagram">
+        </a>
+        <a href="https://t.me/VGS1701">
+            <img class="telegram" src="https://icons-for-free.com/iconfiles/png/512/media+social+telegram+icon-1320193121598222952.png"
+                 width="40px"
+                 height="40px"
+            alt="Telegram">
+        </a>
+        <a href="/cocktails-constructor/about">
+            <img class="home" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Firefox_Home_-_logo.png"
+                 width="42px"
+                 height="43px"
+            title="Information">
+        </a>
+    </div>
+</footer>
+
+</body>
+
+</html>
