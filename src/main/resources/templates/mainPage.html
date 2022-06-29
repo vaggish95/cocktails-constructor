@@ -1,171 +1,181 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      lang="ru">
 <head>
     <meta charset="UTF-8">
     <title> Конструктор </title>
     <link rel="stylesheet href "  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="https://images.vexels.com/media/users/3/127978/isolated/lists/b5dc5cfbf9438604b6f856fda4abdc93-hand-drawn-magnifying-glass.png">
     <style type="text/css">
-        .main_photo {
-        text-align:center;
-        background:black;
-    }
-    .main_text {
-    position: relative;
-    top:200px;
-    right:200px;
- }
-  .description_text {
-   text-align:center;
-  }
-.form{
-   text-align:center;
-   background:#00053d;
-   padding-bottom:30px;
-   z-index:-2;
-   }
-   .footer_container{
-    position: relative;
-    text-align: center;
-    background-color: grey;
-    padding-top:30px;
-    padding-bottom:30px;
+.main_photo {
+            text-align:center;
+            background:black;
+}.main_text {
+            position: relative;
+            top:200px;
+            right:200px;
+}.description_text {
+             text-align:center;
+}.form{
+               text-align:center;
+               background:#00053d;
+               padding-bottom:30px;
+               z-index:-2;
+}.footer_container{
+                position: relative;
+                text-align: center;
+                background-color: grey;
+                padding-top:30px;
+                padding-bottom:30px;
 }.custom-btn {
-  width: 200px;
-  height: 70px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-}
-.btn-9 {
-  border: none;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  z-index:0;
-}
-.btn-9:after {
-  position: absolute;
-  content: " ";
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-   background-color: #1fd1f9;
-background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
-  transition: all 0.3s ease;
-}
-.btn-9:hover {
-  background: transparent;
-  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              width: 200px;
+              height: 70px;
+              color: #fff;
+              border-radius: 5px;
+              padding: 10px 25px;
+              font-family: 'Lato', sans-serif;
+              font-weight: 500;
+              background: transparent;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              position: relative;
+              display: inline-block;
+               box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+               7px 7px 20px 0px rgba(0,0,0,.1),
+               4px 4px 5px 0px rgba(0,0,0,.1);
+              outline: none;
+}.btn-9 {
+              border: none;
+              transition: all 0.3s ease;
+              overflow: hidden;
+              z-index:0;
+}.btn-9:after {
+              position: absolute;
+              content: " ";
+              z-index: -1;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+               background-color: #1fd1f9;
+            background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+              transition: all 0.3s ease;
+}.btn-9:hover {
+              background: transparent;
+              box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2),
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-  color: #fff;
-}
-.btn-9:hover:after {
-  -webkit-transform: scale(2) rotate(180deg);
-  transform: scale(2) rotate(180deg);
-  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2),
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-}
-.table{
-text-align:center;
-border-collapse: collapse;
+              inset -4px -4px 6px 0 rgba(255,255,255,.5),
+              inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+              color: #fff;
+}.btn-9:hover:after {
+              -webkit-transform: scale(2) rotate(180deg);
+              transform: scale(2) rotate(180deg);
+              box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                          -4px -4px 6px 0 rgba(116, 125, 136, .2),
+                inset -4px -4px 6px 0 rgba(255,255,255,.5),
+                inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
 }.html, body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  background: linear-gradient(#f2f2f6, #d3d3e7);
+          height: 100%;
+}.body {
+          margin: 0;
+          background: linear-gradient(#f2f2f6, #d3d3e7);
 }
 .container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.animated-word {
-  font-family: fantasy;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  font-size: 35px;
-  text-align: center;
-  color: #ef08ef;
-  cursor: pointer;
-  max-width: 600px;
-  width: 100%;
-  outline: 3px solid;
-  outline-color: rgba(71, 126, 232,0.5);
-  outline-offset: 70px;
-  transition: all 600ms cubic-bezier(0.2, 0, 0, 0.8);
-}
-.animated-word:hover {
-  color: #181fb1;
-  outline-color: rgba(71, 126, 232, 0);
-  outline-offset:100px;
-}
-.name_holder {
-position:relative;
-right:60px;
-top:50px;
-}
-a {
-text-decoration: none;
-color: #ef08ef;
-}
-.ingridientsForm {
-font-family: Sans-serif;
-color:white;
-}
-.tableLabel {
-padding-top:30px;
-font-size:30px;
-color:#ff00ff;
-font-family: Sans-serif;
-}
-.buttonsHolder {
-padding-bottom:20px;
-}
-.resultPhoto {
-width:350px;
-max-height:750px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}.animated-word {
+              font-family: fantasy;
+              letter-spacing: 0.1em;
+              font-weight: 600;
+              font-size: 35px;
+              text-align: center;
+              color: #ef08ef;
+              cursor: pointer;
+              max-width: 600px;
+              width: 100%;
+              outline: 3px solid;
+              outline-color: rgba(71, 126, 232,0.5);
+              outline-offset: 70px;
+              transition: all 600ms cubic-bezier(0.2, 0, 0, 0.8);
+}.animated-word:hover {
+              color: #181fb1;
+              outline-color: rgba(71, 126, 232, 0);
+              outline-offset:100px;
+}.name_holder {
+            position:relative;
+            right:60px;
+            top:50px;
+}a {
+            text-decoration: none;
+            color: #ef08ef;
+}.ingridientsForm {
+            font-family: Sans-serif;
+            color:white;
+}.tableLabel {
+            padding-top:30px;
+            font-size:30px;
+            color:#ff00ff;
+            font-family: Sans-serif;
+}.buttonsHolder {
+            padding-bottom:20px;
+}.resultPhoto {
+            width:350px;
+            max-height:750px;
 }
 .account {
-position:relative;
-top:10px;
-left:250px;
-font-size:30px;
-font-family: 'Nunito', sans-serif;
+            position:relative;
+            top:10px;
+            left:250px;
+            font-size:30px;
+            font-family: 'Nunito', sans-serif;
+}.liked_botton {
+            background: white;
+            border:0;
+}.logging_suggest {
+            position:relative;
+            text-align:center;
+            background-color:white;
+}.header {
+            position:relative;
+            top:15px;
+            text-align:center;
+            padding-bottom:3px;
+            background-color:black;
 }
 </style>
-
 </head>
+
 <body>
+
+<div class="header">
+    <div sec:authorize="isAnonymous()">
+        <a href="/cocktails-constructor/account">
+            <p class="account"> ВОЙТИ </p>
+        </a>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <a href="/cocktails-constructor/account">
+            <p class="account"> Личный кабинет </p>
+        </a>
+    </div>
+</div>
+
 <div class="main_photo">
-    <a href="/cocktails-constructor/login" ><p class="account"> ВОЙТИ </p> </a>
     <img src="https://i.imgur.com/bWaXi5j.jpeg"
          width="1000"
          height="500"
          alt="Конструктор Коктейлей">
 </div>
+
 <div class="description_text">
 <img src="https://i.imgur.com/VaiQnfj.png"
-     width="900" height="500">
+     width="900" height="500" alt="Идея проекта">
 </div>
+
 <div class="form">
 
     <div class="tableLabel" > ВЫБЕРИТЕ ИГРЕДИЕНТЫ И ТИП ПОИСКА: </div>
@@ -194,7 +204,7 @@ font-family: 'Nunito', sans-serif;
                             form="ingredients_list"
                             formaction="/cocktails-constructor/search/fullMatch"
                             title="Будет показан коктейль, состав которого польностью соответствует заданному перечню ингредиентов.">КОНКРЕТНЫЙ КОКТЕЙЛЬ</button>
-                </td>/
+                </td>
             </tr>
         </table>
     </div>
@@ -258,7 +268,7 @@ font-family: 'Nunito', sans-serif;
                         <input  type="checkbox"  value="207" name ="checkbox"> PORTO <br>
                         <input  type="checkbox"  value="208" name ="checkbox"> WERMUT <br>
                     </td>
-                    </td>
+
                     <td valign="top" width="300" align="left">
                         <input type="checkbox"  value="301" name ="checkbox"> Coffee <br>
                         <input type="checkbox" value="302"  name ="checkbox"> Cream <br>
@@ -280,16 +290,19 @@ font-family: 'Nunito', sans-serif;
                         <input type="checkbox" value="318" name ="checkbox"> Egg <br>
                         <input type="checkbox" value="319" name ="checkbox"> Raspberry <br>
                         <input type="checkbox" value="320" name ="checkbox"> Ginger Ale <br>
-
-
                     </td>
                 </tr>
             </table>
         </form>
     </div>
-
 </div>
-<div class ="output" style="background-color:white;">
+
+<div style="background-color:white;">
+
+    <div align="center" sec:authorize="isAnonymous()">
+        <img src="https://i.imgur.com/hw4hyqr.png">
+    </div>
+
     <th:block th:each="Cocktail : ${ready_list}">
         <div style="background-color:white; padding-top:30px; padding-bottom:160px;">
             <div class="front_image_container2">
@@ -300,9 +313,26 @@ font-family: 'Nunito', sans-serif;
                         </td>
                         <td align="center">
                             <div class="name_holder">
-                                    <div class="container">
-                                        <p class="animated-word"> <a th:text="${Cocktail.name}" th:href="${Cocktail.href}"></a></p>
-                                    </div>
+                                <div class="container">
+                                    <p class="animated-word"> <a th:text="${Cocktail.name}" th:href="${Cocktail.href}"></a></p>
+                                </div>
+
+                                <div sec:authorize="isAuthenticated()">
+                                    <form action="/cocktails-constructor/addFavorite" method="POST">
+                                        <input type="hidden" name="addFavorite" th:value="${Cocktail.name}">
+                                        <button
+                                           class="liked_botton"
+                                           type="submit"
+                                           title="Добавить в избранное">
+                                       <img
+                                            width="50"
+                                            height="50"
+                                            src="https://i.imgur.com/mNos8JA.png"
+                                            alt="Добавить в избранное">
+                                        </button>
+                                    </form>
+
+                                </div>
                             </div>
                         </td>
                     </tr>

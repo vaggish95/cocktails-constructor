@@ -1,10 +1,10 @@
 package com.cocktail.site.controllers;
+
 import com.cocktail.site.service.CocktailsSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Controller
@@ -33,9 +33,7 @@ public class MainPage {
             model.addAttribute("ready_list", cocktailsSearch.combinations(parametersList));
             return "mainPage";
         }
-
     }
-
 
     @GetMapping(value = "/search/fullMatch")
     public String fullMatchCocktail(@RequestParam(name = "checkbox", required = false) List<Integer> parametersList, Model model) {

@@ -1,6 +1,5 @@
 package com.cocktail.site.Entities;
 
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,8 +24,6 @@ public class Cocktail {
     @Column(nullable = false)
     private String photo;
 
-    @ManyToOne ()
-    private  User user;
 
     ///////////////////////////////////////////////////////////////////////
     public Cocktail(String name, String photo, String href, List<Integer> ingList) {
@@ -74,14 +71,6 @@ public class Cocktail {
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Cocktail(){}

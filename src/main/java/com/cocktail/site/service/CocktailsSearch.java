@@ -4,14 +4,14 @@ import com.cocktail.site.Entities.Cocktail;
 import com.cocktail.site.repository.CocktailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 @Service
 public class CocktailsSearch {
+
+    static List <Cocktail> PREVIOUS_PARAMETERS_LIST;
 
     CocktailsRepository cocktailsRepository;
 
@@ -28,6 +28,7 @@ public class CocktailsSearch {
         initialList.add((cocktailsRepository.findById(43L)).get());
         initialList.add((cocktailsRepository.findById(34L)).get());
         initialList.add((cocktailsRepository.findById(56L)).get());
+        PREVIOUS_PARAMETERS_LIST = initialList;
         return initialList;
     }
 
@@ -51,6 +52,7 @@ public class CocktailsSearch {
             }
         }
 
+        PREVIOUS_PARAMETERS_LIST = ready_list;
         return ready_list;
     }
 
@@ -83,6 +85,7 @@ public class CocktailsSearch {
             }
         }
 
+        PREVIOUS_PARAMETERS_LIST = readyList;
         return readyList;
     }
 
@@ -104,7 +107,12 @@ public class CocktailsSearch {
             }
         }
 
+        PREVIOUS_PARAMETERS_LIST = readyList;
         return readyList;
+    }
+
+    public static List<Cocktail> getPreviousParametersList() {
+        return PREVIOUS_PARAMETERS_LIST;
     }
 
 

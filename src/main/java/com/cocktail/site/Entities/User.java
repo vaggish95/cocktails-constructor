@@ -1,9 +1,11 @@
 package com.cocktail.site.Entities;
 
-
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.List;
+
 
 @Entity
 @Table(name = "users")
@@ -28,6 +30,9 @@ public class User {
     @Column(name = "city")
     private String city;
 
+    @Column(name= "creation_date")
+    private LocalDateTime creationDate;
+
     @ManyToMany
     @JoinTable(
                 name = "users_roles",
@@ -35,11 +40,17 @@ public class User {
                 inverseJoinColumns = @JoinColumn(name = "role_id" ))
     private Collection <Role> roles;
 
-    @OneToMany(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List <Cocktail> usersListOfCocktails;
+    @ElementCollection(targetClass = Cocktail.class)
+    private List <Cocktail> favoiteList;
+
+
+    public List<Cocktail> getFavoiteList() {
+        return favoiteList;
+    }
+
+    public void setFavoiteList(List<Cocktail> favoiteList) {
+        this.favoiteList = favoiteList;
+    }
 
     public Long getId() {
         return id;
@@ -81,26 +92,11 @@ public class User {
         this.roles = roles;
     }
 
-    public List<Cocktail> getUsersListOfCocktails() {
-        return usersListOfCocktails;
-    }
-
-    public void setUsersListOfCocktails(List<Cocktail> usersListOfCocktails) {
-        this.usersListOfCocktails = usersListOfCocktails;
-    }
-
     public String getCity() {
         return city;
     }
 
     public void setCity(String city) {
-        this.city = city;
-    }
-
-    public User(String name, String email, String password, String city) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
         this.city = city;
     }
 
@@ -112,8 +108,29 @@ public class User {
         this.password_repeat = password_repeat;
     }
 
+    public String getCreationDate() {
+        return creationDate.format(DateTimeFormatter.ofPattern("HH:mm   dd/MM/yyyy"));
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public User(String name, String email, String password, String city) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.city = city;
+        this.creationDate = LocalDateTime.now();
+    }
+
     public User () {
     }
+
+
+
+
+
 
 
 
