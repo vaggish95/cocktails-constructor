@@ -9,14 +9,14 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class CocktailsSearch {
+public class CocktailsSearchService {
 
     static List <Cocktail> PREVIOUS_PARAMETERS_LIST;
 
     CocktailsRepository cocktailsRepository;
 
     @Autowired
-    public CocktailsSearch(CocktailsRepository cocktailsRepository) {
+    public CocktailsSearchService(CocktailsRepository cocktailsRepository) {
         this.cocktailsRepository = cocktailsRepository;
     }
 

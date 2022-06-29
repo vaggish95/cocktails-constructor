@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import java.security.Principal;
 
 @Service
-public class AccountSettings {
+public class AccountSettingsService {
 
     UsersRepository usersRepository;
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AccountSettings(UsersRepository usersRepository, PasswordEncoder passwordEncoder) {
+    public AccountSettingsService(UsersRepository usersRepository, PasswordEncoder passwordEncoder) {
         this.usersRepository = usersRepository;
         this.passwordEncoder = passwordEncoder;
     }

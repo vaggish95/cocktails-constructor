@@ -2,8 +2,7 @@ package com.cocktail.site.controllers;
 
 
 import com.cocktail.site.Entities.User;
-import com.cocktail.site.repository.UsersRepository;
-import com.cocktail.site.service.NewAccountCreator;
+import com.cocktail.site.service.AccountCreatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/registration")
-public class Registration {
+public class RegistrationController {
 
-    NewAccountCreator newAccountCreator;
+    AccountCreatorService accountCreatorService;
 
     @Autowired
-    public Registration(NewAccountCreator newAccountCreator) {
-        this.newAccountCreator = newAccountCreator;
+    public RegistrationController(AccountCreatorService accountCreatorService) {
+        this.accountCreatorService = accountCreatorService;
     }
 
     @GetMapping
@@ -29,7 +28,7 @@ public class Registration {
     public String signIn (User user, Model model){
 
         if  (user.getPassword().equals(user.getPassword_repeat())) {
-            newAccountCreator.save(user);
+            accountCreatorService.save(user);
             return "login";
         }
         else {

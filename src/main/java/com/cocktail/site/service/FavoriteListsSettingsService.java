@@ -11,13 +11,13 @@ import java.security.Principal;
 import java.util.List;
 
 @Service
-public class FavoriteListSettings {
+public class FavoriteListsSettingsService {
 
     UsersRepository usersRepository;
     CocktailsRepository cocktailsRepository;
 
     @Autowired
-    public FavoriteListSettings(UsersRepository usersRepository, CocktailsRepository cocktailsRepository) {
+    public FavoriteListsSettingsService(UsersRepository usersRepository, CocktailsRepository cocktailsRepository) {
         this.usersRepository = usersRepository;
         this.cocktailsRepository = cocktailsRepository;
     }

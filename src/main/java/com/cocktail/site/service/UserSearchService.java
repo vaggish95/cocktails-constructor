@@ -17,12 +17,12 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Service
-public class UserSearch implements UserDetailsService {
+public class UserSearchService implements UserDetailsService {
 
     private UsersRepository usersRepository;
 
     @Autowired
-    public UserSearch(UsersRepository usersRepository){
+    public UserSearchService(UsersRepository usersRepository){
         this.usersRepository = usersRepository;
     }
 

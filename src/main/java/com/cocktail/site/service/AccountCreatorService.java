@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class NewAccountCreator {
+public class AccountCreatorService {
 
     UsersRepository usersRepository;
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    public NewAccountCreator(UsersRepository usersRepository, PasswordEncoder passwordEncoder) {
+    public AccountCreatorService(UsersRepository usersRepository, PasswordEncoder passwordEncoder) {
         this.usersRepository = usersRepository;
         this.passwordEncoder = passwordEncoder;
     }

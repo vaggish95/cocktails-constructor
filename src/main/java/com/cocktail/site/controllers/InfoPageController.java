@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/about")
-public class InfoPage {
+public class InfoPageController {
 
     @GetMapping
     public String about (){

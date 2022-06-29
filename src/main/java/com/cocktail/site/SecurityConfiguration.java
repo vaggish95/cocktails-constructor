@@ -1,6 +1,6 @@
 package com.cocktail.site;
 
-import com.cocktail.site.service.UserSearch;
+import com.cocktail.site.service.UserSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,12 +15,12 @@ import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-   private final UserSearch userSearch;
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+   private final UserSearchService userSearchService;
 
    @Autowired
-    public SecurityConfig(UserSearch userSearch) {
-        this.userSearch = userSearch;
+    public SecurityConfiguration(UserSearchService userSearchService) {
+        this.userSearchService = userSearchService;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider daoAuthenticationProvider () {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setPasswordEncoder(passwordEncoder());
-        authenticationProvider.setUserDetailsService(userSearch);
+        authenticationProvider.setUserDetailsService(userSearchService);
         return authenticationProvider;
     }
 
