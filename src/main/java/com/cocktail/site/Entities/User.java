@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.List;
 
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -43,6 +42,8 @@ public class User {
     @ElementCollection(targetClass = Cocktail.class)
     private List <Cocktail> favoiteList;
 
+    @Column(name = "photo")
+    private String photo;
 
     public List<Cocktail> getFavoiteList() {
         return favoiteList;
@@ -116,11 +117,20 @@ public class User {
         this.creationDate = creationDate;
     }
 
-    public User(String name, String email, String password, String city) {
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public User (String name, String email, String password, String city, String photo) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.city = city;
+        this.photo = photo;
         this.creationDate = LocalDateTime.now();
     }
 
