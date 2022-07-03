@@ -1,5 +1,10 @@
 package com.cocktail.site.Entities;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -8,6 +13,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
+@Setter
+@Getter
 public class User {
 
     @Id
@@ -29,6 +37,7 @@ public class User {
     @Column(name = "city")
     private String city;
 
+    @Getter(AccessLevel.NONE)
     @Column(name= "creation_date")
     private LocalDateTime creationDate;
 
@@ -45,84 +54,8 @@ public class User {
     @Column(name = "photo")
     private String photo;
 
-    public List<Cocktail> getFavoiteList() {
-        return favoiteList;
-    }
-
-    public void setFavoiteList(List<Cocktail> favoiteList) {
-        this.favoiteList = favoiteList;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Collection<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPassword_repeat() {
-        return password_repeat;
-    }
-
-    public void setPassword_repeat(String password_repeat) {
-        this.password_repeat = password_repeat;
-    }
-
     public String getCreationDate() {
         return creationDate.format(DateTimeFormatter.ofPattern("HH:mm   dd/MM/yyyy"));
-    }
-
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
     }
 
     public User (String name, String email, String password, String city, String photo) {
@@ -133,15 +66,4 @@ public class User {
         this.photo = photo;
         this.creationDate = LocalDateTime.now();
     }
-
-    public User () {
-    }
-
-
-
-
-
-
-
-
 }

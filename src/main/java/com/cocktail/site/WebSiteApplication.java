@@ -21,6 +21,7 @@ public class WebSiteApplication {
 		2. Logging
 		3. Cover by tests
 		5. Let user upload his own photo
+		6. DTO and DAO
 
 		 */
 	}
