@@ -61,4 +61,3 @@
 7. CSS 
 8. Maven 
 
-<img width="629" alt="Снимок экрана 2022-06-29 в 15 03 55" src="https://user-images.githubusercontent.com/71041467/176431924-6dbefff6-3f3f-4a15-9b56-59ad59170184.png">
